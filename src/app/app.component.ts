@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,21 +6,25 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  currentKeg: string = 'Kegs';
+  title = 'taproom';
+
   kegs: Keg [] = [
-    new Keg('Pliny the Younger', 'Russian River', '$6.50', '10.25%', '58'),
-    new Keg('LSD', 'Lompoc', '$5.50', '6.9%', '90')
+    new Keg('Pliny the Younger', 'Russian River', '$6.50', '10.25%', '58', 100),
+    new Keg('LSD', 'Lompoc', '$5.50', '6.9%', '90', 50)
   ];
-  testKeg(){
-    this.kegs.push(new Keg ('Sailors Beer', 'Brewery  Co.', '$2.00', '6%', '45'));
+  selectedKeg = null;
+
+  editKeg(clickedKeg){
+    this.selectedKeg = clickedKeg;
   }
-  addKeg(name, brewery, price, ABV, IBU){
-    this.kegs.push(new Keg(name, brewery, price, ABV, IBU));
-    console.log(this.addKeg(name, brewery, price, ABV, IBU));
+
+  addKeg(){
+    const newKeg = new Keg('', '', '', '', '', 0);
+    this.kegs.push(newKeg);
+    this.selectedKeg = newKeg;
   }
 }
 
 export class Keg {
-  constructor(public name: string, public brewery: string, public price: string, public ABV: string, public IBU: string) { }
+  constructor(public name: string, public brewery: string, public price: string, public ABV: string, public IBU: string, public pintsLeft: number) { }
 }

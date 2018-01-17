@@ -8,34 +8,44 @@
 
 <h2>Taps Available Now: </h2>
 
-<div *ngFor="let currentKeg of kegs">
-  <h3>{{currentKeg.name}}</h3>
+<div *ngFor="let keg of kegs">
+  <h3>{{keg.name}}</h3>
   <ul>
-    <li>Brewery: {{currentKeg.brewery}}</li>
-    <li>Price: {{currentKeg.price}}</li>
-    <li>ABV: {{currentKeg.ABV}}</li>
-    <li>IBU: {{currentKeg.IBU}}</li>
+    <li>Brewery: {{keg.brewery}}</li>
+    <li>Price: {{keg.price}}</li>
+    <li>ABV: {{keg.ABV}}</li>
+    <li>IBU: {{keg.IBU}}</li>
+    <li>Pints Remaining: {{keg.pintsLeft}}</li>
+    <button (click)="editKeg(keg)">Edit this keg</button>
   </ul>
 </div>
-<button (click)="testKeg(currentKeg)">Add Sailor's Beer</button>
-<form>
-  <input [value]="name" (input)="name = $event.target.value" type="text">
-  <input [value]="brewery" (input)="brewery = $event.target.value" type="text">
-  <input [value]="price" (input)="price = $event.target.value" type="text">
-  <input [value]="ABV" (input)="ABV = $event.target.value" type="text">
-  <input [value]="IBU" (input)="IBU = $event.target.value" type="text">
-  <button (submit)="addKeg(name, brewery, price, ABV, IBU)"></button>
-</form>
-<ul>
-  <li>{{currentKeg.name}}</li>
-</ul>
-<!-- <form id="add-keg" (ngSubmit)="onSubmit(add-keg)" novalidate> -->
-<!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate> -->
-<!-- <form>
-  <input name="name" ngModel required #name="ngModel" placeholder="Name">
-  <input name="B" placeholder="Brewery">
-  <input name="P" placeholder="Price">
-  <input name="A" placeholder="ABV">
-  <input name="I" placeholder="IBU">
-  <button type="button" name="button">Add Keg</button>
-</form> -->
+
+<div *ngIf="selectedKeg">
+  <div class="form-group">
+    <label>Enter name:</label>
+    <input [(ngModel)]="selectedKeg.name">
+  </div>
+  <div class="form-group">
+    <label>Price:</label>
+    <input [(ngModel)]="selectedKeg.price" >
+  </div>
+  <div class="form-group">
+    <label>Brewery:</label>
+    <input [(ngModel)]="selectedKeg.brand">
+  </div>
+  <div class="form-group">
+    <label>ABV:</label>
+    <input [(ngModel)]="selectedKeg.ABV">
+  </div>
+  <div class="form-group">
+    <label>IBU:</label>
+    <input [(ngModel)]="selectedKeg.IBU">
+  </div>
+  <div class="form-group">
+    <label>Pints Remaining:</label>
+    <input [(ngModel)]="selectedKeg.pintsLeft">
+  </div>
+  
+</div>
+
+<button (click)="addKeg()">Add New Keg</button>
