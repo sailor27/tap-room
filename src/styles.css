@@ -35,7 +35,18 @@ body {
 .kegs ul {
   list-style: none;
   width: 350px;
+}
 
+.cheap{
+  background-color: burlywood;
+}
+
+.regular{
+  background-color: brown;
+}
+
+.fancy{
+  background-color: gold;
 }
 
 .form {
