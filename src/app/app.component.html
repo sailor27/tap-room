@@ -1,37 +1,39 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
   <h1>
     Welcome to The Tap Room
   </h1>
-
-</div>
+  <div class="add-keg">
+    <button (click)="addKeg()">Add New Keg</button>
+  </div>
 
 <h2>Taps Available Now: </h2>
 
-<div *ngFor="let keg of kegs">
-  <h3>{{keg.name}}</h3>
-  <ul>
-    <li>Brewery: {{keg.brewery}}</li>
-    <li>Price: {{keg.price}}</li>
-    <li>ABV: {{keg.ABV}}</li>
-    <li>IBU: {{keg.IBU}}</li>
-    <li>Pints Remaining: {{keg.pintsLeft}}</li>
-    <button (click)="editKeg(keg)">Edit this keg</button>
-  </ul>
+<div class="row">
+  <div class="kegs col-md-6" *ngFor="let keg of kegs">
+    <h3>{{keg.name}}</h3>
+    <ul>
+      <li>Brewery: {{keg.brewery}}</li>
+      <li>Price: {{keg.price}}</li>
+      <li>ABV: {{keg.ABV}}</li>
+      <li>IBU: {{keg.IBU}}</li>
+      <li>Pints Remaining: {{keg.pintsLeft}}</li>
+      <button (click)="editKeg(keg)">Edit</button>
+    </ul>
+  </div>
 </div>
 
-<div *ngIf="selectedKeg">
+<div class="form" *ngIf="selectedKeg">
   <div class="form-group">
     <label>Enter name:</label>
     <input [(ngModel)]="selectedKeg.name">
   </div>
   <div class="form-group">
-    <label>Price:</label>
-    <input [(ngModel)]="selectedKeg.price" >
+    <label>Brewery:</label>
+    <input [(ngModel)]="selectedKeg.brewery">
   </div>
   <div class="form-group">
-    <label>Brewery:</label>
-    <input [(ngModel)]="selectedKeg.brand">
+    <label>Price:</label>
+    <input [(ngModel)]="selectedKeg.price" >
   </div>
   <div class="form-group">
     <label>ABV:</label>
@@ -45,7 +47,6 @@
     <label>Pints Remaining:</label>
     <input [(ngModel)]="selectedKeg.pintsLeft">
   </div>
-  
-</div>
 
-<button (click)="addKeg()">Add New Keg</button>
+  <button (click)="doneBtn()">Done</button>
+</div>

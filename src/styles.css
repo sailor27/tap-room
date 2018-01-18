@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  display: flex;
+  justify-content: center;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.kegs {
+  border: 4px solid black;
+  box-sizing: border-box;
+  margin-right: 6px;
+  margin-bottom: 20px;
+}
+
+.kegs ul {
+  list-style: none;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+button {
+  background: none;
+  border: 2px solid black;
+}
