@@ -27,10 +27,10 @@ import { Keg } from './keg.model';
     </div>
     <div class="form-group">
       <label>Pints:</label>
-      <input #newPintsLeft>
+      <input #newPintsLeft type="number">
     </div>
 
-    <button class="btn-sm"(click)="submitForm(newName.value, newBrewery.value, newPrice.value, newABV.value, newIBU.value, newPintsLeft.value)">Add</button>
+    <button class="btn-sm"(click)="submitForm(newName.value, newBrewery.value, newPrice.value, newABV.value, newIBU.value, newPintsLeft.value); newName.value = ''; newBrewery.value=''; newPrice.value=''; newABV.value=''; newIBU.value=''; newPintsLeft.value='';">Add</button>
   </div><!--selectedKeg form-->
   `
 })
