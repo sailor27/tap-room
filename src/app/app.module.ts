@@ -5,13 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { KegListComponent } from './keg-list.component';
 import { EditKegComponent } from './edit-keg.component';
 import { AddKegComponent } from './add-keg.component';
+import { PintsLeftPipe } from './pintsLeft.pipe';
 
 @NgModule({
   imports: [
     BrowserModule, FormsModule
   ],
   declarations: [
-    AppComponent, KegListComponent, EditKegComponent, AddKegComponent
+    AppComponent, KegListComponent, EditKegComponent, AddKegComponent, PintsLeftPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

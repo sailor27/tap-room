@@ -5,7 +5,7 @@ import { Keg } from './keg.model';
   selector: 'keg-list',
   template: `
     <div class="row keg-area">
-      <div class="kegs col-lg-4 center-block" *ngFor="let keg of childKegList">
+      <div class="kegs col-lg-4 center-block" *ngFor="let keg of childKegList | pintsleft">
         <ul>
           <li><h3>{{keg.name}}</h3></li>
           <li>Brewery: {{keg.brewery}}</li>
@@ -36,4 +36,5 @@ export class KegListComponent {
     return keg.pintsLeft -= 1;
     }
 
+}
 }
