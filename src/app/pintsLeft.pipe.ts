@@ -10,7 +10,7 @@ export class PintsLeftPipe implements PipeTransform {
   transform(input: Keg[]){
     var output: Keg[] = [];
     for (var i = 0; i < input.length; i++) {
-      if(input[i].pintsLeft < 100) {
+      if(input[i].pintsLeft > 1) {
         output.push(input[i]);
       }
     }
